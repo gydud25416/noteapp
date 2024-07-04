@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'SUIT-Regular';
+  src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_suit@1.0/SUIT-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+*{margin:0; padding:0;}
+body {
+  margin: 0;
+  font-family:   'SUIT',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width:100vw;
+  height:100vh;
+  background-image: url("./assets/bg.jpg");
+  background-size: cover;
+}
+a, li, ul {color:#333; text-decoration: none; list-style:none;}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

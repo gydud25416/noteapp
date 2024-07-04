@@ -1,0 +1,5 @@
+.noteitem_wrap{ display: flex; padding:20px; background:#fff; border-radius: 15px;align-items: center; justify-content: space-between;}
+
+.noteitem_wrap>div{ }
+.noteitem_wrap h1{font-size: 18px;}
+

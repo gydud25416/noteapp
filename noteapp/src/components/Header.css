@@ -1,0 +1,5 @@
+#header {display: flex;}
+
+#header .leftChild{width:25%;}
+#header h1{font-weight: 900; text-align: center; width:50%; padding-bottom:30px;}
+#header .rightChild{width:25%;}

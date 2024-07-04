@@ -1,5 +1,11 @@
-.noteitem_wrap{ display: flex; padding:20px; background:#fff; border-radius: 15px;align-items: center; justify-content: space-between;}
+.noteitem_wrap{ display: flex;  background:#fff; border-radius: 15px;align-items: center; justify-content: space-between; margin-bottom:8px; }
 
 .noteitem_wrap>div{ }
+.noteitem_wrap .note_title{ padding:30px 20px; width:75%; }
+.noteitem_wrap .note_btn{padding:30px 20px; }
 .noteitem_wrap h1{font-size: 18px;}
+.noteitem_wrap .note_title h1{padding-bottom:8px;}
+.noteitem_wrap .note_title p{color:#555; font-size: 14px;}
 
+  .note_btn a,   .note_btn button{ background: #666; color:#fff; padding:5px; border-radius: 5px; font-weight: 300;}
+  .note_btn .edit{background:#f3772a; margin-right:5px;}

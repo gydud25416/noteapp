@@ -1,11 +1,16 @@
 import NoteItem from "./NoteItem";
-
-export default function NoteList(){
+import './NoteList.css'
+export default function NoteList({data, delData}){
 
     return(
         <div className="notelist_wrap">
             
-            <NoteItem/>
+            <div className="list_wrap">
+            {data?.map((it)=>(
+                <NoteItem delData={delData} key={it.id} it={it} />
+            ))}
+                 
+            </div>
         </div>
     )
 }

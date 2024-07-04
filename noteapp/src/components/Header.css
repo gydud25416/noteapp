@@ -1,5 +1,10 @@
-#header {display: flex;}
+#header {display: flex; align-items: center; justify-content: space-between; margin-bottom:50px; position:relative;}
 
 #header .leftChild{width:25%;}
-#header h1{font-weight: 900; text-align: center; width:50%; padding-bottom:30px;}
-#header .rightChild{width:25%;}
+#header h1{font-weight: 900; position: relative; text-align: center; width:50%;  background:linear-gradient(to top, #ffe6d7 50%, transparent 50%);}
+ 
+#header .rightChild{width:25%;  display: flex; justify-content: flex-end;}
+#header button,#header a{padding:10px 15px; border-radius: 5px; color:#fff; font-weight: 300; }
+#header .add{ background:#2e9aff;  }
+#header .goback{ background:#555;   }
+#header .edit{background:#f3772a; }

@@ -8,3 +8,10 @@
 #header .add{ background:#2e9aff;  }
 #header .goback{ background:#555;   }
 #header .edit{background:#f3772a; }
+
+@media screen and (max-width:550px) {
+ 
+    #header h1{font-size: 6vw;}
+    #header button, #header a{ padding: 8px 5px;}
+ 
+}

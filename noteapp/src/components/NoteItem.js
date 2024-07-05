@@ -9,19 +9,15 @@ export default function NoteItem({delData,  it}){
         .then(res=>{ delData(res.data)})
         alert("삭제되었습니다.")
     }
-    }
-
+    } 
     function goEdit(){
         navigate(`/edit/${it.id}`)
-    }
-
+    } 
     return(
         <div  className="noteitem_wrap">
-            <Link to={`/view/${it.id}`}  className='note_title'>
-            
+            <Link to={`/view/${it.id}`}  className='note_title'> 
                 <h1>{it.title}</h1>
-                <p>{it.day}</p>
-           
+                <p>{it.day}</p> 
             </Link>
             <div className='note_btn'>
                 <button onClick={goEdit}   className='edit' >수정</button>

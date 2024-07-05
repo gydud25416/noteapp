@@ -9,3 +9,9 @@
 
   .note_btn a,   .note_btn button{ background: #666; color:#fff; padding:5px; border-radius: 5px; font-weight: 300;}
   .note_btn .edit{background:#f3772a; margin-right:5px;}
+
+  @media screen and (max-width:550px) {
+ 
+    .noteitem_wrap .note_title{padding:30px 15px; width:60%; }
+    .noteitem_wrap .note_btn {padding:30px 15px;}
+}

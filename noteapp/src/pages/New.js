@@ -9,24 +9,39 @@ export default function New({goBack, addData}){
     const titRef = useRef(null);
     const contRef = useRef(null);
     function onAdd(){
-        if(window.confirm("저장하시겠습니까?")){
-            axios.post('http://localhost:3001/notes',{
-                title:titRef.current.value,
-                content:contRef.current.value,
-                day:new Date().toLocaleDateString()
-            })
-            .then(res=>{addData(res.data)})
+        if(!titRef.current.value){
+            alert("제목을 입력해주세요.");
+            titRef.current.focus()
+            return false;
         }
-        alert("저장되었습니다.")
-        navigate('/')
+        if(!contRef.current.value){
+            if(window.confirm("내용이 없습니다. 그대로 저장하시겠습니까?")){
+                axios.post('http://localhost:3001/notes',{
+                    title:titRef.current.value,
+                    content:contRef.current.value,
+                    day:new Date().toLocaleDateString()
+                })
+                .then(res=>{addData(res.data)})
+            } 
+            }else{
+                if(window.confirm("저장하시겠습니까?")){
+                    axios.post('http://localhost:3001/notes',{
+                        title:titRef.current.value,
+                        content:contRef.current.value,
+                        day:new Date().toLocaleDateString()
+                    })
+                    .then(res=>{addData(res.data)})
+                } 
+            }
+            alert("저장되었습니다.")
+            navigate('/')
     }
-
     return(
         <>
             <Header title={"새 노트 추가"} rightChild={<button onClick={onAdd}  className="add" >저장하기</button>}  leftChild={<button onClick={goBack} className="goback" >돌아가기</button>} />
             <div className="new_wrap" >
                 <input ref={titRef} placeholder="제목을 입력해주세요."/>
-                <textarea ref={contRef}  placeholder="내용을 입력해주세요." />
+                <textarea ref={contRef}   wrap="hard" cols={1000}  placeholder="내용을 입력해주세요." />
             </div>
         </>
     )

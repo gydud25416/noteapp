@@ -1,14 +1,18 @@
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import NoteList from "../components/NoteList";
-import { useEffect, useState } from "react";
+import { useEffect,   useState } from "react";
  
 
 
-export default function Home({item ,delData }){
+export default function Home({item ,delData, latestData }){
     const [ser, setSer] =useState();
     const [data, setData] = useState(item); 
-
+ 
+    
+    function handleOnChangeSelect(e){
+        latestData(e.target.value)
+    }
     function handleOnChangeSearch(e){
         search(e.target.value); 
     }
@@ -29,7 +33,7 @@ export default function Home({item ,delData }){
             <Header title={"노트필기 앱"} rightChild={<Link to={'/new'}  className="add" >새 노트</Link>} />
             <div className="filter-wrap">
                 <input type="text"   onChange={handleOnChangeSearch} className="search" placeholder="검색어를 입력해주세요." />
-                <select>
+                <select   onChange={handleOnChangeSelect}>
                     <option value={'latest'}>최신순</option>
                     <option value={'oldest'}>오래된순</option>
                 </select>

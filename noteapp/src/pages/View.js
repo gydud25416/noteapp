@@ -12,7 +12,14 @@ export default function View( ){
             <Header title={"Detail"} rightChild={<Link item={item} className="edit" to={`/edit/${item.id}`}>수정하기</Link>} leftChild={<Link className="goback" to={'/'}>돌아가기</Link>} />
             <div className="content_wrap" >
                 <h1>{item.title}</h1>
-                <p>{item.content}</p>
+                <p>{item.content?.split("\n").map((line) => { //this.props.data.content: 내용
+            return (
+              <span>
+                {line}
+                <br />
+              </span>
+            );
+          })}</p>
             </div>
         </div>
     )

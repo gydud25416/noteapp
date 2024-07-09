@@ -2,10 +2,15 @@ import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import NoteList from "../components/NoteList";
 import { useEffect,   useState } from "react";
+import styled from "styled-components";
  
+// const DarkModeDiv = styled.div`
 
 
-export default function Home({item ,delData, latestData }){
+// `
+
+
+export default function Home({item ,delData, latestData, darkMode }){
     const [ser, setSer] =useState();
     const [data, setData] = useState(item); 
  

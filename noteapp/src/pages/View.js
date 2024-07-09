@@ -14,7 +14,7 @@ export default function View( ){
                 <h1>{item.title}</h1>
                 <p>{item.content?.split("\n").map((line) => { //this.props.data.content: 내용
             return (
-              <span>
+              <span key={line}>
                 {line}
                 <br />
               </span>

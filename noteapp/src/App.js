@@ -17,7 +17,16 @@ const AppBg = styled.div`
  transition:0.5s;
   background:${(p)=> p.$even === 'false'   ? "rgba(255,255,255, 0.5)" : "rgba(0,0,0,0.5)"  }
 `
- 
+
+const StyledDarkBtn = styled.button`
+  background:${(p)=>p.theme.colors.defaultBg}; 
+  color:${(p)=>p.theme.colors.defaultFont};
+    box-shadow:${(p)=>p.theme.colors.defaultShadow}; 
+  &:after{
+    background:${(p)=>p.theme.colors.darkModeBtn};
+  }
+`
+
 export  const ThemeContext = React.createContext();
 
 function App() {
@@ -95,7 +104,7 @@ function App() {
                     <Route path='/view/:id' element={<View   />}/>
                     <Route path='*' element={<Empty/>}/>
                 </Routes>
-                <button onClick={onDarkMode} className={!darkMode ? 'theme_btn' : 'theme_btn dark'}>{!darkMode ? "Light Mode" : "Dark Mode"}</button> 
+                <StyledDarkBtn onClick={onDarkMode} className={!darkMode ? 'theme_btn' : 'theme_btn dark'}>{!darkMode ? "Light Mode" : "Dark Mode"}</StyledDarkBtn> 
             </AppBg>
          </ThemeProvider>
       </ThemeContext.Provider>

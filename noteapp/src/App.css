@@ -1,10 +1,11 @@
  .App { padding:70px 0 50px 0; height:100%; transition:0.5s; }
  .App.dark{background:rgba(0,0,0,0.5);}
- .App .app_wrap{width:600px;   margin:0 auto;   border-radius: 20px; padding: 50px 30px;}
- .App .theme_btn{background:#fff; padding:5px; border-radius: 50px; width:140px; height:35px; font-size: 14px; position:relative; transition:0.5s; margin-top:15px; }
- .App .theme_btn::after{content: ''; display: block; background:#f3772a; width:15px; height:15px; border-radius: 50%; position:absolute; top:calc(50% - 7.5px); left:8px; transition:0.5s;} 
- .App .theme_btn.dark{background:#555; color:#fff;}
- .App .theme_btn.dark::after{  background:#f3772a; left:calc(100% - 23px);   }
+ .App .app_wrap{width:600px;   margin:0 auto;   border-radius: 20px; padding: 50px 30px; box-shadow: 5px 8px 12px rgba(0,0,0,0.3);}
+ .App .theme_btn{  padding:5px; border-radius: 50px; width:140px; height:35px; font-size: 14px; position:relative; transition:0.5s; margin-top:15px; }
+ .App .theme_btn::after{content: ''; display: block;   width:15px; height:15px; border-radius: 50%; position:absolute; top:calc(50% - 7.5px); left:8px; transition:0.5s;} 
+ .App .theme_btn.dark::after{ left:calc(100% - 23px);   }
+
+
 
  @media screen and (max-width:1080px) {
     .notelist_wrap{height:880px;}

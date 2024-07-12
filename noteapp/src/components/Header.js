@@ -1,7 +1,7 @@
 import styled  from 'styled-components'
 import './Header.css' 
 import { useContext } from 'react'
-import { ThemeContext } from '../App'
+import {  ThemeContext } from '../App'
 
 const StyledHeader = styled.header`
     color:${(p)=>p.theme.colors.defaultFont};
@@ -9,13 +9,26 @@ const StyledHeader = styled.header`
         background:${(p)=>p.theme.colors.headerH1};
         font-weight:${(p)=>p.theme.colors.h1Weight}
     }
+    a{
+        box-shadow:${(p)=>p.theme.colors.defaultShadow}; 
+    }
+    a.edit{
+        background:${(p)=>p.theme.colors.editBtn}; 
+    }
+    a.add{
+        background:${(p)=>p.theme.colors.addBtn}; 
+    }
+ 
+    button.add{
+        background:${(p)=>p.theme.colors.addBtn}; 
+    }
 `
 
 export default function Header({title, leftChild, rightChild }){
-    const theme = useContext(ThemeContext);
-    console.log(theme.colors.headerH1)
+    const theme = useContext(ThemeContext); 
+ 
     return(
-        <StyledHeader id="header" theme={theme}>
+        <StyledHeader  id="header" theme={theme}>
             
             <div className='leftChild'>{leftChild}</div>
             <h1>{title}</h1>

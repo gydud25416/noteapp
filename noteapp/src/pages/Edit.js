@@ -4,7 +4,27 @@ import Header from "../components/Header";
 import useFetch from "../hooks/useFetch";
 import { useEffect,   useRef,   useState } from "react";
 import axios from "axios";
+import styled from "styled-components";
 
+const StyledBoard =styled.input`
+  color:${(p)=>p.theme.colors.defaultFont};
+  background:${(p)=>p.theme.colors.defaultBg};
+  box-shadow:${(p)=>p.theme.colors.defaultShadow}; 
+ 
+  &::placeholder{
+    color:${(p)=>p.theme.colors.defaultFont};
+  }
+` 
+
+const StyledBoard2 =styled.textarea`
+  color:${(p)=>p.theme.colors.defaultFont};
+  background:${(p)=>p.theme.colors.defaultBg}; 
+  box-shadow:${(p)=>p.theme.colors.defaultShadow}; 
+ 
+  &::placeholder{
+    color:${(p)=>p.theme.colors.defaultFont};
+  }
+` 
 export default function Edit({goBack, editData}){
     const navigate = useNavigate(null);
     const {id} = useParams(); 
@@ -63,8 +83,8 @@ export default function Edit({goBack, editData}){
         <div className="edit_wrap">
             <Header title={"수정하기"} rightChild={<button onClick={onEdit}  className="add" >저장하기</button>} leftChild={<button onClick={goBack} className="goback" >돌아가기</button>} />
             <div className="new_wrap" >
-                <input  value={tit || ''} ref={titRef} onChange={handleOnChageTit} placeholder="제목을 입력해주세요."/>
-                <textarea value={con || ''} onChange={handleOnChageCon} placeholder="내용을 입력해주세요." />
+                <StyledBoard  value={tit || ''} ref={titRef} onChange={handleOnChageTit} placeholder="제목을 입력해주세요."/>
+                <StyledBoard2 value={con || ''} onChange={handleOnChageCon} placeholder="내용을 입력해주세요." />
             </div>
         </div>
     )

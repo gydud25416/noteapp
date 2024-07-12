@@ -4,6 +4,28 @@ import Header from "../components/Header";
 import './New.css'
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+
+const StyledBoard =styled.input`
+  color:${(p)=>p.theme.colors.defaultFont};
+  background:${(p)=>p.theme.colors.defaultBg};
+  box-shadow:${(p)=>p.theme.colors.defaultShadow}; 
+ 
+  &::placeholder{
+    color:${(p)=>p.theme.colors.defaultFont};
+  }
+` 
+
+const StyledBoard2 =styled.textarea`
+  color:${(p)=>p.theme.colors.defaultFont};
+  background:${(p)=>p.theme.colors.defaultBg}; 
+  box-shadow:${(p)=>p.theme.colors.defaultShadow}; 
+ 
+  &::placeholder{
+    color:${(p)=>p.theme.colors.defaultFont};
+  }
+` 
+
 export default function New({goBack, addData}){
     const navigate = useNavigate(null);
     const titRef = useRef(null);
@@ -40,8 +62,8 @@ export default function New({goBack, addData}){
         <>
             <Header title={"새 노트 추가"} rightChild={<button onClick={onAdd}  className="add" >저장하기</button>}  leftChild={<button onClick={goBack} className="goback" >돌아가기</button>} />
             <div className="new_wrap" >
-                <input ref={titRef} placeholder="제목을 입력해주세요."/>
-                <textarea ref={contRef}   wrap="hard" cols={1000}  placeholder="내용을 입력해주세요." />
+                <StyledBoard ref={titRef} placeholder="제목을 입력해주세요."/>
+                <StyledBoard2 ref={contRef}   wrap="hard" cols={1000}  placeholder="내용을 입력해주세요." />
             </div>
         </>
     )

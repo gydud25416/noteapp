@@ -2,7 +2,7 @@
 
 .filter-wrap{display: flex; justify-content: space-between; align-items: center; margin-bottom:10px;}
 
-input.search{background:0; padding:10px 8px; border-bottom: 1px solid #555; border-radius: 0; width:40%;}
+input.search{background:0; padding:10px 8px;  border-radius: 0; width:40%;}
 
 @media screen and (max-width:550px) {
     input.search{width:60%;}

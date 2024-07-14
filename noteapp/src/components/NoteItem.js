@@ -40,7 +40,7 @@ export default function NoteItem({delData,  it}){
         navigate(`/edit/${it.id}`)
     } 
     return(
-        <StyledDiv  className="noteitem_wrap">
+        <StyledDiv  theme={theme} className="noteitem_wrap">
             <Link to={`/view/${it.id}`}  className='note_title'> 
                 <h1>{it.title}</h1>
                 <p>{it.day}</p> 

@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import NoteList from "../components/NoteList";
 import { useContext, useEffect,   useState } from "react";
 import styled from "styled-components";
-import { ThemeContext } from "../App";
+import { PageContext, ThemeContext } from "../App";
  
  const StyledInput =styled.input.attrs({
     placeholder:"검색어를 입력해주세요.",
@@ -16,11 +16,11 @@ import { ThemeContext } from "../App";
          color:${(p)=>p.theme.colors.defaultFont}; 
     }
  ` 
-export default function Home({item ,delData, latestData  }){
+export default function Home({ delData, latestData  }){
     const theme = useContext(ThemeContext);
+    const {item } = useContext(PageContext);
     const [ser, setSer] =useState();
-    const [data, setData] = useState(item); 
- 
+    const [data, setData] = useState(item);  
     
     function handleOnChangeSelect(e){
         latestData(e.target.value)

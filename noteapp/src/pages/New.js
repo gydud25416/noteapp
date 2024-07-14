@@ -1,10 +1,11 @@
  
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import Header from "../components/Header";
 import './New.css'
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { PageContext } from "../App";
 
 const StyledBoard =styled.input`
   color:${(p)=>p.theme.colors.defaultFont};
@@ -26,7 +27,8 @@ const StyledBoard2 =styled.textarea`
   }
 ` 
 
-export default function New({goBack, addData}){
+export default function New({  addData}){
+    const {goBack} = useContext(PageContext)
     const navigate = useNavigate(null);
     const titRef = useRef(null);
     const contRef = useRef(null);

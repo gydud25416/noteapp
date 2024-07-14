@@ -2,9 +2,10 @@
 import { useNavigate, useParams } from "react-router-dom";
 import Header from "../components/Header";
 import useFetch from "../hooks/useFetch";
-import { useEffect,   useRef,   useState } from "react";
+import { useContext, useEffect,   useRef,   useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import { PageContext } from "../App";
 
 const StyledBoard =styled.input`
   color:${(p)=>p.theme.colors.defaultFont};
@@ -25,7 +26,8 @@ const StyledBoard2 =styled.textarea`
     color:${(p)=>p.theme.colors.defaultFont};
   }
 ` 
-export default function Edit({goBack, editData}){
+export default function Edit( editData ){
+    const {goBack} = useContext(PageContext);
     const navigate = useNavigate(null);
     const {id} = useParams(); 
     const item = useFetch(`http://localhost:3001/notes/${id}`); 

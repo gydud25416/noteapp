@@ -32,6 +32,7 @@ const StyledDarkBtn = styled.button`
 `
 
 export  const ThemeContext = React.createContext(); 
+export  const PageContext = React.createContext(); 
 
 function App() {
   const data = useFetch('http://localhost:3001/notes');
@@ -106,15 +107,15 @@ function App() {
   },[ ]); 
   
   return (
-    
+    <PageContext.Provider value={ {item, goBack}} >
     <ThemeContext.Provider value={theme}>
       <ThemeProvider theme={theme}>
       <StyledApp theme={theme} className='App' > 
               <AppBg className='app_wrap' > 
                 <Routes>
-                    <Route path='/' element={<Home  latestData={latestData} item={item} delData={delData} goBack={goBack}  />}/>
-                    <Route path='/edit/:id' element={<Edit editData={editData} goBack={goBack} item={item}  />} />
-                    <Route path='/new' element={<New addData={addData} goBack={goBack} />} />
+                    <Route path='/' element={<Home  latestData={latestData}  delData={delData}   />}/>
+                    <Route path='/edit/:id' element={<Edit editData={editData}  />} />
+                    <Route path='/new' element={<New addData={addData} />} />
                     <Route path='/view/:id' element={<View   />}/>
                     <Route path='*' element={<Empty/>}/>
                 </Routes>
@@ -123,7 +124,7 @@ function App() {
         </StyledApp>
          </ThemeProvider>
       </ThemeContext.Provider>
- 
+      </PageContext.Provider>
   
   );
 }

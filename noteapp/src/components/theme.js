@@ -10,7 +10,9 @@ export const lightTheme = {
         defaultShadow:"1px 2px 8px rgba(0,0,0,0.3)",
         deleteBtn:"#666",
         editBtn:"#f3772a",
-        addBtn:"#2e9aff"
+        addBtn:"#2e9aff",
+        BgDim:"none",
+        BgDimDiv:"rgba(255,255,255,0.5)"
     }
 }
 
@@ -23,9 +25,11 @@ export const darkTheme = {
         defaultBlue:"#0656a1",
         defaultLight:"#efefef",
         darkModeBtn:"#dd6317",
-        defaultShadow:"2px 3px 8px rgba(0,0,0,0.8)",
+        defaultShadow:"2px 3px 8px rgba(0,0,0,0.6)",
         deleteBtn:"#333",
         editBtn:"#dd6317",
-        addBtn:"#0656a1"
+        addBtn:"#0656a1",
+        BgDim:"rgba(0,0,0,0.5)" ,
+        BgDimDiv:"rgba(0,0,0,0.5)"
     }
 }

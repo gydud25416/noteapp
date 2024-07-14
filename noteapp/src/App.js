@@ -13,9 +13,13 @@ import axios from 'axios';
 import './components/theme'
 import { darkTheme, lightTheme } from './components/theme';
 
+const StyledApp = styled.div` 
+ background:${(p)=> p.theme.colors.BgDim   }
+`
+
 const AppBg = styled.div`
  transition:0.5s;
-  background:${(p)=> p.$even === 'false'   ? "rgba(255,255,255, 0.5)" : "rgba(0,0,0,0.5)"  }
+  background:${(p)=> p.theme.colors.BgDimDiv  }
 `
 
 const StyledDarkBtn = styled.button`
@@ -27,7 +31,7 @@ const StyledDarkBtn = styled.button`
   }
 `
 
-export  const ThemeContext = React.createContext();
+export  const ThemeContext = React.createContext(); 
 
 function App() {
   const data = useFetch('http://localhost:3001/notes');
@@ -78,25 +82,35 @@ function App() {
 
   function onDarkMode(){
     setDarkMode(!darkMode);
+    localStorage.setItem('localMode', darkMode);
     if(!darkMode){
       setThemeMode('darkTheme');  
     }else{
       setThemeMode('lightTheme');  
     } 
-  }
-  
- 
+  } 
   useEffect(()=>{
     const result = data.sort((a,b)=>new Date(b.day) - new Date(a.day))
-    setItem(result);   
-
+    setItem(result);  
   },[data   ]); 
+
+  useEffect(()=>{ 
+    const LocalMode = localStorage.getItem('localMode'); 
+    if(LocalMode === 'false'){ 
+      setDarkMode(true);  
+      setThemeMode('darkTheme');
+    }else{ 
+      setDarkMode(false );  
+      setThemeMode('lightTheme'); 
+    } 
+  },[ ]); 
   
   return (
-    <div className={!darkMode ? "App" : "App dark"}  > 
+    
     <ThemeContext.Provider value={theme}>
       <ThemeProvider theme={theme}>
-              <AppBg className='app_wrap' $even={`${darkMode}`}> 
+      <StyledApp theme={theme} className='App' > 
+              <AppBg className='app_wrap' > 
                 <Routes>
                     <Route path='/' element={<Home  latestData={latestData} item={item} delData={delData} goBack={goBack}  />}/>
                     <Route path='/edit/:id' element={<Edit editData={editData} goBack={goBack} item={item}  />} />
@@ -106,9 +120,10 @@ function App() {
                 </Routes>
                 <StyledDarkBtn onClick={onDarkMode} className={!darkMode ? 'theme_btn' : 'theme_btn dark'}>{!darkMode ? "Light Mode" : "Dark Mode"}</StyledDarkBtn> 
             </AppBg>
+        </StyledApp>
          </ThemeProvider>
       </ThemeContext.Provider>
-  </div>
+ 
   
   );
 }

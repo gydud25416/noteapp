@@ -12,6 +12,9 @@ const StyledHeader = styled.header`
     a{
         box-shadow:${(p)=>p.theme.colors.defaultShadow}; 
     }
+    button{
+        box-shadow:${(p)=>p.theme.colors.defaultShadow}; 
+    }
     a.edit{
         background:${(p)=>p.theme.colors.editBtn}; 
     }

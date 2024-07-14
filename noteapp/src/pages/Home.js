@@ -15,9 +15,7 @@ import { ThemeContext } from "../App";
      &::placeholder {
          color:${(p)=>p.theme.colors.defaultFont}; 
     }
- `
-
-
+ ` 
 export default function Home({item ,delData, latestData  }){
     const theme = useContext(ThemeContext);
     const [ser, setSer] =useState();

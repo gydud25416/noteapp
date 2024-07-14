@@ -26,7 +26,7 @@ const StyledBoard2 =styled.textarea`
     color:${(p)=>p.theme.colors.defaultFont};
   }
 ` 
-export default function Edit( editData ){
+export default function Edit( {editData} ){
     const {goBack} = useContext(PageContext);
     const navigate = useNavigate(null);
     const {id} = useParams(); 
@@ -60,7 +60,7 @@ export default function Edit( editData ){
                     title:tit,
                     content:con 
                 })
-                .then(res=>{
+                .then(res=>{ 
                     editData(res.data);
                     alert("수정되었습니다.");
                     navigate(`/view/${item.id}`);

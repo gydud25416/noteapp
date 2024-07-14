@@ -91,7 +91,12 @@ function App() {
     } 
   } 
   useEffect(()=>{
-    const result = data.sort((a,b)=>new Date(b.day) - new Date(a.day))
+    const result = data.sort((a,b)=>{
+      if(a.day === b.day){
+        return b.timestamp - a.timestamp;
+      }
+      return new Date(b.day) - new Date(a.day)}
+    )
     setItem(result);  
   },[data   ]); 
 

@@ -43,16 +43,18 @@ export default function New({  addData}){
                 axios.post('http://localhost:3001/notes',{
                     title:titRef.current.value,
                     content:contRef.current.value,
-                    day:new Date().toLocaleDateString()
+                    day:new Date().toLocaleDateString(),
+                    timestamp:new Date().getTime()
                 })
                 .then(res=>{addData(res.data)})
             } 
             }else{
                 if(window.confirm("저장하시겠습니까?")){
-                    axios.post('http://localhost:3001/notes',{
+                    axios.post('http://localhost:3001/notes',{ 
                         title:titRef.current.value,
                         content:contRef.current.value,
-                        day:new Date().toLocaleDateString()
+                        day:new Date().toLocaleDateString() ,
+                        timestamp:new Date().getTime()
                     })
                     .then(res=>{addData(res.data)})
                 } 

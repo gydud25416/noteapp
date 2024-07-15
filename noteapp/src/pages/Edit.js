@@ -85,7 +85,7 @@ export default function Edit( {editData} ){
         <div className="edit_wrap">
             <Header title={"수정하기"} rightChild={<button onClick={onEdit}  className="add" >저장하기</button>} leftChild={<button onClick={goBack} className="goback" >돌아가기</button>} />
             <div className="new_wrap" >
-                <StyledBoard  value={tit || ''} ref={titRef} onChange={handleOnChageTit} placeholder="제목을 입력해주세요."/>
+                <StyledBoard  value={tit || ''} maxLength={30} ref={titRef} onChange={handleOnChageTit} placeholder="제목을 입력해주세요."/>
                 <StyledBoard2 value={con || ''} onChange={handleOnChageCon} placeholder="내용을 입력해주세요." />
             </div>
         </div>

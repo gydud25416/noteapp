@@ -3,8 +3,8 @@
 .noteitem_wrap>div{ }
 .noteitem_wrap .note_title{ padding:30px 20px; width:75%; }
 .noteitem_wrap .note_btn{padding:30px 20px; }
-.noteitem_wrap h1{font-size: 18px;}
-.noteitem_wrap .note_title h1{padding-bottom:8px;}
+.noteitem_wrap h1{font-size: 18px; -webkit-line-clamp : 1; -webkit-box-orient:vertical ;display:-webkit-box; overflow: hidden;}
+.noteitem_wrap .note_title h1{margin-bottom:8px;}
 .noteitem_wrap .note_title p{font-size: 14px;}
 
   .note_btn a,   .note_btn button{ background: #666; color:#fff; padding:5px; border-radius: 5px; font-weight: 300;}
@@ -15,3 +15,6 @@
     .noteitem_wrap .note_title{padding:30px 15px; width:60%; }
     .noteitem_wrap .note_btn {padding:30px 15px;}
 }
+
+#my-tooltip{color:#f6f6f6; background:rgb(80 110 141)}
+.noteitem_wrap .tooltip-arrow{background:lightcoral}

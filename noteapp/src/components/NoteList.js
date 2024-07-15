@@ -10,7 +10,7 @@ const StyledH2 = styled.h2`
 ` 
 
 const ListWrap = styled.div`
-    height:480px; 
+     
     overflow: auto; 
     padding:8px;
     background:${(p)=>p.theme.colors.BgDimDiv};
@@ -21,15 +21,15 @@ const ListWrap = styled.div`
 export default function NoteList({data, delData}){ 
     const theme = useContext(ThemeContext);
     return(
-        <div className="notelist_wrap">
+         
             
-            <ListWrap theme={theme} className="list_wrap">
+            <ListWrap theme={theme} className="notelist_wrap">
             {data.length === 0 ? (
                 <StyledH2>저장된 노트가 없습니다.</StyledH2>
             ):(data?.map((it)=>(
                 <NoteItem delData={delData} key={it.id} it={it} />
             )))} 
             </ListWrap>
-        </div>
+        
     )
 }

@@ -3,7 +3,13 @@
 .filter-wrap{display: flex; justify-content: space-between; align-items: center; margin-bottom:10px;}
 
 input.search{background:0; padding:10px 8px;  border-radius: 0; width:40%;}
-
+.notelist_wrap{height:55vh;}
+/* @media screen and (max-width:1080px) {
+    .notelist_wrap{height:530px;}
+}
+@media screen and (max-width:840px) {
+    .notelist_wrap{height:480px;}
+} */
 @media screen and (max-width:550px) {
     input.search{width:60%;}
     .notelist_wrap{height:400px}

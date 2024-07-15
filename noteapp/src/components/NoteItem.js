@@ -4,6 +4,7 @@ import axios from 'axios';
 import styled from 'styled-components';
 import { useContext } from 'react';
 import { ThemeContext } from '../App';
+import {Tooltip} from  'react-tooltip';
 
 const StyledDiv = styled.div`
     background:${(p)=>p.theme.colors.defaultBg}; 
@@ -41,10 +42,16 @@ export default function NoteItem({delData,  it}){
     } 
     return(
         <StyledDiv  theme={theme} className="noteitem_wrap">
-            <Link to={`/view/${it.id}`}  className='note_title'> 
+            <Link to={`/view/${it.id}`} 
+            data-tooltip-id='my-tooltip' 
+            data-tooltip-content={it.title}
+            data-tooltip-place='bottom'
+            className='note_title'
+            > 
                 <h1>{it.title}</h1>
                 <p>{it.day}</p> 
             </Link>
+            <Tooltip id='my-tooltip' classNameArrow='tooltip-arrow' />
             <div className='note_btn'>
                 <button onClick={goEdit} className='edit' >수정</button>
                 <button onClick={onDelete} className='delete'>삭제</button>

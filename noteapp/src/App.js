@@ -55,9 +55,8 @@ function App() {
     navigate(-1)
   }
 
-  function delData(e){
-    const result = item.filter((it)=>it.id !== e.id);
-    setItem(result);
+  function delData(e){ 
+    setItem(result => result.filter((it)=>it.id !== e.id));
   }
 
   function addData(e){
@@ -114,9 +113,9 @@ function App() {
   return (
     <>
     {data.length === 0 ? ( 
-      <div class="loading-container">
+      <div className="loading-container">
         <div>
-      <div class="loading"></div>
+      <div className="loading"></div>
       <div id="loading-text">LOADING</div>
       </div>
       </div> 

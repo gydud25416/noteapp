@@ -40,7 +40,7 @@ export default function New({  addData}){
         }
         if(!contRef.current.value){
             if(window.confirm("내용이 없습니다. 그대로 저장하시겠습니까?")){
-                axios.post('http://localhost:3001/notes',{
+                axios.post('https://wobbly-literate-fight.glitch.me/notes',{
                     title:titRef.current.value,
                     content:contRef.current.value,
                     day:new Date().toLocaleDateString(),
@@ -50,7 +50,7 @@ export default function New({  addData}){
             } 
             }else{
                 if(window.confirm("저장하시겠습니까?")){
-                    axios.post('http://localhost:3001/notes',{ 
+                    axios.post('https://wobbly-literate-fight.glitch.me/notes',{ 
                         title:titRef.current.value,
                         content:contRef.current.value,
                         day:new Date().toLocaleDateString() ,

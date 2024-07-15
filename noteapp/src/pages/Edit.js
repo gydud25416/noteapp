@@ -30,7 +30,7 @@ export default function Edit( {editData} ){
     const {goBack} = useContext(PageContext);
     const navigate = useNavigate(null);
     const {id} = useParams(); 
-    const item = useFetch(`http://localhost:3001/notes/${id}`); 
+    const item = useFetch(`https://wobbly-literate-fight.glitch.me/notes/${id}`); 
     const [tit, setTit] = useState(''); 
     const [con, setCon] = useState('');
     const titRef = useRef(null);
@@ -55,7 +55,7 @@ export default function Edit( {editData} ){
         }
         if(!con){
             if(window.confirm("내용이 없습니다. 그대로 저장하시겠습니까?")){
-                axios.put(`http://localhost:3001/notes/${id}`,{
+                axios.put(`https://wobbly-literate-fight.glitch.me/notes/${id}`,{
                     ...item,
                     title:tit,
                     content:con 
@@ -68,7 +68,7 @@ export default function Edit( {editData} ){
             }
         }else{
             if(window.confirm("수정하시겠습니까?")){
-                axios.put(`http://localhost:3001/notes/${id}`,{
+                axios.put(`https://wobbly-literate-fight.glitch.me/notes/${id}`,{
                     ...item,
                     title:tit,
                     content:con 

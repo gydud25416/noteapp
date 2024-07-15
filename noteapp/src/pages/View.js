@@ -17,22 +17,33 @@ const StyledBoard =styled.div`
 export default function View( ){
     const {id} = useParams();
     
-    const item = useFetch(`http://localhost:3001/notes/${id}`);
-
+    const item = useFetch(`https://wobbly-literate-fight.glitch.me/notes/${id}`);
+    
+     
     return(
+      <>
+
         <div className="view_wrap">
+     
             <Header title={"Detail"} rightChild={<Link item={item} className="edit" to={`/edit/${item.id}`}>수정하기</Link>} leftChild={<Link className="goback" to={'/'}>돌아가기</Link>} />
             <StyledBoard className="content_wrap" >
-                <h1>{item.title}</h1>
-                <p>{item.content?.split("\n").map((line) => { //this.props.data.content: 내용
-            return (
-              <span >
-                {line}
-                <br />
-              </span>
-            );
-          })}</p>
+              {!item || item.length === 0 ? (
+                <h1>불러오는 중...</h1>
+              ):(
+                <>
+              <h1>{item.title}</h1>
+              <p>{item.content?.split("\n").map((line, idx) => ( //this.props.data.content: 내용 
+                  <span key={idx} >
+                    {line}
+                    <br />
+                  </span> 
+              ))}</p>
+              </>
+                  )}
+                
             </StyledBoard>
         </div>
+        </>
     )
 }
+ 

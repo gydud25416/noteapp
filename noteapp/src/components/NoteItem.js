@@ -32,7 +32,7 @@ export default function NoteItem({delData,  it}){
     const navigate = useNavigate(null);
     function onDelete(){
         if(window.confirm("해당 일기를 삭제하시겠습니까?")){
-        axios.delete(`http://localhost:3001/notes/${it.id}`)
+        axios.delete(`https://wobbly-literate-fight.glitch.me/notes/${it.id}`)
         .then(res=>{ delData(res.data)})
         alert("삭제되었습니다.")
     }

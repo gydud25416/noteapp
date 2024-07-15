@@ -35,7 +35,7 @@ export  const ThemeContext = React.createContext();
 export  const PageContext = React.createContext(); 
 
 function App() {
-  const data = useFetch('http://localhost:3001/notes');
+  const data = useFetch('https://wobbly-literate-fight.glitch.me/notes');
  const [item, setItem] = useState([]); 
   const navigate = useNavigate(null);
  const [latest, setLatest] = useState('latest')
@@ -67,7 +67,7 @@ function App() {
 
   function editData(e){  
     const resultTit = e.title; 
-    axios.put(`http://localhost:3001/notes/${e.id}`, {
+    axios.put(`https://wobbly-literate-fight.glitch.me/notes/${e.id}`, {
       title:resultTit ,
       ...e
     })
@@ -112,6 +112,17 @@ function App() {
   },[ ]); 
   
   return (
+    <>
+    {data.length === 0 ? ( 
+      <div class="loading-container">
+        <div>
+      <div class="loading"></div>
+      <div id="loading-text">LOADING</div>
+      </div>
+      </div> 
+    ):(
+      <div style={{display:'none'}}></div>
+    )}
     <PageContext.Provider value={ {item, goBack}} >
     <ThemeContext.Provider value={theme}>
       <ThemeProvider theme={theme}>
@@ -130,7 +141,7 @@ function App() {
          </ThemeProvider>
       </ThemeContext.Provider>
       </PageContext.Provider>
-  
+      </>
   );
 }
 

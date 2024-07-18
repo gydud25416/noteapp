@@ -34,20 +34,31 @@ const StyledDarkBtn = styled.button`
 export  const ThemeContext = React.createContext(); 
 export  const PageContext = React.createContext(); 
 
-function App() {
-  const data = useFetch('https://wobbly-literate-fight.glitch.me/notes');
+function App() { 
+  const data = useFetch(`${process.env.REACT_APP_API_URL}/notes/`);
  const [item, setItem] = useState([]); 
   const navigate = useNavigate(null);
  const [latest, setLatest] = useState('latest')
  const [darkMode, setDarkMode] = useState(false);
- const [themeMode, setThemeMode] = useState('lightTheme');
- 
+ const [themeMode, setThemeMode] = useState('lightTheme'); 
  function latestData(e){
   setLatest(e);
   if(e === 'latest'){
-    setItem(it => it.sort((a,b)=>new Date(b.day) - new Date(a.day)))
+    const result = item.sort((a,b)=>{
+      if(a.day === b.day){
+        return b.timestamp - a.timestamp;
+      }
+      return new Date(b.day) - new Date(a.day);
+    })
+    setItem(result)
   }else{
-    setItem(it => it.sort((a,b)=>new Date(a.day) - new Date(b.day)))
+    const result = item.sort((a,b)=>{
+      if(a.day === b.day){
+        return a.timestamp - b.timestamp;
+      }
+      return new Date(a.day) - new Date(b.day);
+    })
+    setItem(result)
   }
  }
 
@@ -66,7 +77,7 @@ function App() {
 
   function editData(e){  
     const resultTit = e.title; 
-    axios.put(`https://wobbly-literate-fight.glitch.me/notes/${e.id}`, {
+    axios.put(`${process.env.REACT_APP_API_URL}/notes/${e.id}`, {
       title:resultTit ,
       ...e
     })

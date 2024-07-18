@@ -12,12 +12,17 @@ const StyledBoard =styled.div`
   h1{
     border-bottom:2px solid ${(p)=>p.theme.colors.defaultFont};
   }
+
+  p.date{
+    color:${(p)=>p.theme.colors.defaultFont};
+    border-top:1px solid ${(p)=>p.theme.colors.defaultLight};
+  }
 ` 
 
 export default function View( ){
     const {id} = useParams();
     
-    const item = useFetch(`https://wobbly-literate-fight.glitch.me/notes/${id}`);
+    const item = useFetch(`${process.env.REACT_APP_API_URL}/notes/${id}`);
     
      
     return(
@@ -38,6 +43,7 @@ export default function View( ){
                     <br />
                   </span> 
               ))}</p>
+              <p className="date">{item.day}</p>
               </>
                   )}
                 

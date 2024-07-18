@@ -26,7 +26,7 @@ export default function NoteList({data, delData}){
             <ListWrap theme={theme} className="notelist_wrap">
             {data.length === 0 ? (
                 <StyledH2>저장된 노트가 없습니다.</StyledH2>
-            ):(data?.map((it)=>(
+            ):(!data || data.map((it)=>(
                 <NoteItem delData={delData} key={it.id} it={it} />
             )))} 
             </ListWrap>

@@ -6,6 +6,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { PageContext } from "../App";
+import { getFormattedDate } from "../components/util";
 
 const StyledBoard =styled.input`
   color:${(p)=>p.theme.colors.defaultFont};
@@ -40,20 +41,20 @@ export default function New({  addData}){
         }
         if(!contRef.current.value){
             if(window.confirm("내용이 없습니다. 그대로 저장하시겠습니까?")){
-                axios.post('https://wobbly-literate-fight.glitch.me/notes',{
+                axios.post(`${process.env.REACT_APP_API_URL}/notes`,{
                     title:titRef.current.value,
                     content:contRef.current.value,
-                    day:new Date().toLocaleDateString(),
+                    day:getFormattedDate(new Date()),
                     timestamp:new Date().getTime()
                 })
                 .then(res=>{addData(res.data)})
             } 
             }else{
                 if(window.confirm("저장하시겠습니까?")){
-                    axios.post('https://wobbly-literate-fight.glitch.me/notes',{ 
+                    axios.post(`${process.env.REACT_APP_API_URL}/notes`,{ 
                         title:titRef.current.value,
                         content:contRef.current.value,
-                        day:new Date().toLocaleDateString() ,
+                        day:getFormattedDate(new Date()),
                         timestamp:new Date().getTime()
                     })
                     .then(res=>{addData(res.data)})

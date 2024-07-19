@@ -53,7 +53,7 @@ export default function NoteItem({delData,  it}){
             className='note_title'
             > 
                 <h1>{it.title}</h1>
-                <p>{it.day}</p> 
+                <p>{it.showDay}</p> 
             </Link>
             <Tooltip id='my-tooltip' classNameArrow='tooltip-arrow' />
             <div className='note_btn'>

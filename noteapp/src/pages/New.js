@@ -6,7 +6,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { PageContext } from "../App";
-import { getFormattedDate } from "../components/util";
+import { getFormattedDate, getShowDate } from "../components/util";
 
 const StyledBoard =styled.input`
   color:${(p)=>p.theme.colors.defaultFont};
@@ -45,6 +45,7 @@ export default function New({  addData}){
                     title:titRef.current.value,
                     content:contRef.current.value,
                     day:getFormattedDate(new Date()),
+                    showDay:getShowDate(new Date()),
                     timestamp:new Date().getTime()
                 })
                 .then(res=>{addData(res.data)})
@@ -55,6 +56,7 @@ export default function New({  addData}){
                         title:titRef.current.value,
                         content:contRef.current.value,
                         day:getFormattedDate(new Date()),
+                        showDay:getShowDate(new Date()),
                         timestamp:new Date().getTime()
                     })
                     .then(res=>{addData(res.data)})

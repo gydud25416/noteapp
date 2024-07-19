@@ -43,7 +43,7 @@ export default function View( ){
                     <br />
                   </span> 
               ))}</p>
-              <p className="date">{item.day}</p>
+              <p className="date">{item.showDay}</p>
               </>
                   )}
                 

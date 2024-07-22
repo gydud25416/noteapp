@@ -1,3 +1,5 @@
+
+## AXIOS 라이브러리
 - 설치가 필요한 라이브러리
 - url은 필수값이며, 나머지 속성은 옵션
 - method가 설정되지 않으면 get이 기본으로 적용됨
@@ -7,7 +9,6 @@
 `npm i axios`
 
 
-package.json
 
 # 1. GET
 

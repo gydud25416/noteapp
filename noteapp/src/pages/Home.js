@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import NoteList from "../components/NoteList";
-import { useContext, useEffect,   useState } from "react";
+import { useContext, useEffect,   useRef,   useState } from "react";
 import styled from "styled-components";
 import { PageContext, ThemeContext } from "../App";
  
@@ -16,14 +16,20 @@ import { PageContext, ThemeContext } from "../App";
          color:${(p)=>p.theme.colors.defaultFont}; 
     }
  ` 
-export default function Home({ delData, latestData  }){
+export default function Home({ delData, latestData, latest  }){
     const theme = useContext(ThemeContext);
     const {item } = useContext(PageContext);
     const [ser, setSer] =useState();
-    const [data, setData] = useState(item);  
+    const [data, setData] = useState(item); 
+    const selectRef = useRef(null);
+    
+    useEffect(()=>{
+        selectRef.current.value = latest
+    },[latest])
     
     function handleOnChangeSelect(e){
-        latestData(e.target.value)
+        latestData(e.target.value);
+        
     }
     function handleOnChangeSearch(e){
         search(e.target.value); 
@@ -45,7 +51,7 @@ export default function Home({ delData, latestData  }){
             <Header title={"노트필기 앱"} rightChild={<Link to={'/new'}  className="add" >새 노트</Link>} />
             <div className="filter-wrap">
                 <StyledInput theme={theme} onChange={handleOnChangeSearch}  />
-                <select   onChange={handleOnChangeSelect}>
+                <select  ref={selectRef}  onChange={handleOnChangeSelect} >
                     <option value={'latest'}>최신순</option>
                     <option value={'oldest'}>오래된순</option>
                 </select>

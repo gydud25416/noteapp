@@ -62,6 +62,8 @@ function App() {
   }
  }
 
+ 
+
   function goBack(){
     navigate(-1)
   }
@@ -139,7 +141,7 @@ function App() {
       <StyledApp theme={theme} className='App' > 
               <AppBg className='app_wrap' > 
                 <Routes>
-                    <Route path='/' element={<Home  latestData={latestData}  delData={delData}   />}/>
+                    <Route path='/' element={<Home  latestData={latestData} latest={latest}  delData={delData}   />}/>
                     <Route path='/edit/:id' element={<Edit editData={editData}  />} />
                     <Route path='/new' element={<New addData={addData} />} />
                     <Route path='/view/:id' element={<View   />}/>

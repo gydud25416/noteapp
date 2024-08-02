@@ -53,3 +53,6 @@ input, select, textarea { border:0; padding:3px 5px; border-radius: 5px; font-fa
 
 button{border:0; background:0; cursor: pointer; font-family: 'GongGothicMedium', sans-serif; font-size: 16px; }
 
+@media screen and (max-width:550px) {
+  body{background-size:auto ;}
+}

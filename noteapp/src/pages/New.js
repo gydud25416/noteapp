@@ -69,7 +69,7 @@ export default function New({  addData}){
         <>
             <Header title={"새 노트 추가"} rightChild={<button onClick={onAdd}  className="add" >저장하기</button>}  leftChild={<button onClick={goBack} className="goback" >돌아가기</button>} />
             <div className="new_wrap" >
-                <StyledBoard ref={titRef} maxLength={30} placeholder="제목을 입력해주세요."/>
+                <StyledBoard ref={titRef} maxLength={30} placeholder="제목을 입력해주세요. (최대 30자)"/>
                 <StyledBoard2 ref={contRef}   wrap="hard" cols={1000}  placeholder="내용을 입력해주세요." />
             </div>
         </>

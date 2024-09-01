@@ -129,7 +129,7 @@ function App() {
       <div className="loading-container">
         <div>
       <div className="loading"></div>
-      <div id="loading-text">LOADING</div>
+      <div id="loading-text">LOADING<br/><span style={{fontSize:"14px"}}>JSON-SERVER를 시작하는 중입니다.</span></div>
       </div>
       </div> 
     ):(

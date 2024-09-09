@@ -1,9 +1,9 @@
-import { useState } from "react";
+ 
 import './ImageUpload.css'
 
 
-export default function ImageUpload(){
-    const [showImg, setShowImg] = useState([]);
+export default function ImageUpload({setShowImg, showImg}){
+
 	function handleAddImg(e){  //이미지 업로드 preview
         const imgList = e.target.files; 
         let imgUrlList = [...showImg]; 
@@ -15,6 +15,7 @@ export default function ImageUpload(){
             imgUrlList = imgUrlList.slice(0, 6);
         }
         setShowImg(imgUrlList); 
+        console.log(showImg)
     }
 
     function handleDeleteImg(image){ //이미지 삭제

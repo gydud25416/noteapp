@@ -1,5 +1,5 @@
  
-import { useContext, useRef } from "react";
+import { useContext, useRef, useState } from "react";
 import Header from "../components/Header";
 import './New.css'
 import axios from "axios";
@@ -30,11 +30,13 @@ const StyledBoard2 =styled.textarea`
 ` 
 
 export default function New({  addData}){
+    const [showImg, setShowImg] = useState([]);
     const {goBack} = useContext(PageContext)
     const navigate = useNavigate(null);
     const titRef = useRef(null);
     const contRef = useRef(null);
     function onAdd(){
+        
         if(!titRef.current.value){
             alert("제목을 입력해주세요.");
             titRef.current.focus()
@@ -47,7 +49,8 @@ export default function New({  addData}){
                     content:contRef.current.value,
                     day:getFormattedDate(new Date()),
                     showDay:getShowDate(new Date()),
-                    timestamp:new Date().getTime()
+                    timestamp:new Date().getTime(),
+                    images:showImg
                 })
                 .then(res=>{addData(res.data)})
             } 
@@ -58,9 +61,10 @@ export default function New({  addData}){
                         content:contRef.current.value,
                         day:getFormattedDate(new Date()),
                         showDay:getShowDate(new Date()),
-                        timestamp:new Date().getTime()
+                        timestamp:new Date().getTime(),
+                        images:showImg
                     })
-                    .then(res=>{addData(res.data)})
+                    .then(res=>{addData(res.data); console.log(res.data)})
                 } 
             }
             alert("저장되었습니다.")
@@ -72,7 +76,7 @@ export default function New({  addData}){
             <div className="new_wrap" >
                 <StyledBoard ref={titRef} maxLength={30} placeholder="제목을 입력해주세요. (최대 30자)"/>
                 <StyledBoard2 ref={contRef}   wrap="hard" cols={1000}  placeholder="내용을 입력해주세요." />
-                <ImageUpload/>
+                <ImageUpload showImg={showImg} setShowImg={setShowImg} />
             </div>
         </>
     )

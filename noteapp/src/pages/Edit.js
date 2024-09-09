@@ -6,6 +6,7 @@ import { useContext, useEffect,   useRef,   useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
 import { PageContext } from "../App";
+import ImageUpload from "../components/ImageUpload";
 
 const StyledBoard =styled.input`
   color:${(p)=>p.theme.colors.defaultFont};
@@ -27,6 +28,7 @@ const StyledBoard2 =styled.textarea`
   }
 ` 
 export default function Edit( {editData} ){
+    const [showImg, setShowImg] = useState([]);
     const {goBack} = useContext(PageContext);
     const navigate = useNavigate(null);
     const {id} = useParams(); 
@@ -58,7 +60,8 @@ export default function Edit( {editData} ){
                 axios.put(`${process.env.REACT_APP_API_URL}/notes/${id}`,{
                     ...item,
                     title:tit,
-                    content:con 
+                    content:con,
+                    images:showImg 
                 })
                 .then(res=>{ 
                     editData(res.data);
@@ -71,7 +74,8 @@ export default function Edit( {editData} ){
                 axios.put(`${process.env.REACT_APP_API_URL}/notes/${id}`,{
                     ...item,
                     title:tit,
-                    content:con 
+                    content:con ,
+                    images:showImg
                 })
                 .then(res=>{
                     editData(res.data);
@@ -87,6 +91,7 @@ export default function Edit( {editData} ){
             <div className="new_wrap" >
                 <StyledBoard  value={tit || ''} maxLength={30} ref={titRef} onChange={handleOnChageTit} placeholder="제목을 입력해주세요. (최대 30자)"/>
                 <StyledBoard2 value={con || ''} onChange={handleOnChageCon} placeholder="내용을 입력해주세요." />
+                <ImageUpload showImg={showImg} setShowImg={setShowImg}  />
             </div>
         </div>
     )

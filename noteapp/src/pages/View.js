@@ -47,11 +47,19 @@ export default function View( ){
               </>
                   )} 
             </StyledBoard>
+          {item.images?.length > 0 ? 
+          (
             <div className="img_wrap">
+                
                 {item.images?.map((it)=>(
                 <img key={it} src={`https://noteapp-hyjang.web.app/static/media/bg.e1bc0f73ec1b5cdcace9.jpg`} alt="it" /> 
                 ))}
             </div>
+          ) :(
+            <></>
+          ) 
+        }
+            
         </div>
         </>
     )

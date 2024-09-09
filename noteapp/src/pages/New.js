@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { PageContext } from "../App";
 import { getFormattedDate, getShowDate } from "../components/util";
+import ImageUpload from "../components/ImageUpload";
 
 const StyledBoard =styled.input`
   color:${(p)=>p.theme.colors.defaultFont};
@@ -71,6 +72,7 @@ export default function New({  addData}){
             <div className="new_wrap" >
                 <StyledBoard ref={titRef} maxLength={30} placeholder="제목을 입력해주세요. (최대 30자)"/>
                 <StyledBoard2 ref={contRef}   wrap="hard" cols={1000}  placeholder="내용을 입력해주세요." />
+                <ImageUpload/>
             </div>
         </>
     )

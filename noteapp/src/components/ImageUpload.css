@@ -1,0 +1,6 @@
+.new .viewImg {padding:15px 0; display: flex; gap:5px; overflow-x:scroll; }
+.new .viewImg img{width:100%; height:100%;}
+.new .viewImg .imgBox{min-width:85px; border-radius: 5px; border:2px #ddd solid; box-sizing: border-box; height:85px; overflow-y: hidden; position:relative;}
+.new .viewImg .imgBox button{position:absolute; top:0; right:0; background:rgba(255,255,255,0.7)}
+.new .viewImg .addImg{min-width:50px; height:100%; padding:15px 10px; background:#efefef; border:2px #555 solid; border-radius: 10px; display: flex; align-items: center; justify-content: center; cursor: pointer;}
+.new .viewImg .addImg span{font-size: 38px; color:#555; text-align: center;}

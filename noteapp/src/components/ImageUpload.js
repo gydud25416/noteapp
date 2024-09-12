@@ -41,7 +41,7 @@ export default function ImageUpload({setShowImg, showImg, item}){
                             </span></button>
                     </div>
                 ))}
-                <input id='img' style={{display:'none'}}  type='file' accept='/image/*' multiple  onChange={handleAddImg}/>
+                <input id='img' style={{display:'none'}}  type='file' accept='image/*' multiple  onChange={handleAddImg}/>
                  
             </div> 
         </div>

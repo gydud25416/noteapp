@@ -3,6 +3,7 @@ import Header from "../components/Header";
 import './View.css' 
 import useFetch from "../hooks/useFetch";
 import styled from "styled-components";
+import uploadImg from "../assets/image.jpg"
 
 const StyledBoard =styled.div`
   color:${(p)=>p.theme.colors.defaultFont};
@@ -52,7 +53,7 @@ export default function View( ){
             <div className="img_wrap">
                 
                 {item.images?.map((it)=>(
-                <img key={it} src={`https://noteapp-hyjang.web.app/static/media/bg.e1bc0f73ec1b5cdcace9.jpg`} alt="it" /> 
+                <img key={it} src={uploadImg} alt="it" /> 
                 ))}
             </div>
           ) :(

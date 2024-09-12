@@ -1,8 +1,15 @@
  
+import { useEffect } from 'react';
 import './ImageUpload.css'
 
 
-export default function ImageUpload({setShowImg, showImg}){
+export default function ImageUpload({setShowImg, showImg, item}){
+ 
+    useEffect(()=>{
+        if(item.images){
+        setShowImg(item.images) 
+    }
+    },[item]) 
 
 	function handleAddImg(e){  //이미지 업로드 preview
         const imgList = e.target.files; 
@@ -14,8 +21,7 @@ export default function ImageUpload({setShowImg, showImg}){
         if(imgUrlList.length > 6){ //최대 이미지 갯수 설정 
             imgUrlList = imgUrlList.slice(0, 6);
         }
-        setShowImg(imgUrlList); 
-        console.log(showImg)
+        setShowImg(imgUrlList);  
     }
 
     function handleDeleteImg(image){ //이미지 삭제
@@ -26,8 +32,8 @@ export default function ImageUpload({setShowImg, showImg}){
             <div className='viewImg'>
             <label htmlFor='img' className='addImg' ><span class="material-symbols-outlined">
                 add_a_photo
-                </span></label> 
-                {showImg.map((image, idx)=>(
+                </span></label>  
+                {showImg?.map((image, idx)=>(
                     <div key={idx} className='imgBox'>
                         <img src={image} alt={`img${idx}`} />
                         <button onClick={()=>handleDeleteImg(image)}><span class="material-symbols-outlined">

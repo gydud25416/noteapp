@@ -91,7 +91,7 @@ export default function Edit( {editData} ){
             <div className="new_wrap" >
                 <StyledBoard  value={tit || ''} maxLength={30} ref={titRef} onChange={handleOnChageTit} placeholder="제목을 입력해주세요. (최대 30자)"/>
                 <StyledBoard2 value={con || ''} onChange={handleOnChageCon} placeholder="내용을 입력해주세요." />
-                <ImageUpload showImg={showImg} setShowImg={setShowImg}  />
+                <ImageUpload showImg={showImg} item={item} setShowImg={setShowImg}  />
             </div>
         </div>
     )

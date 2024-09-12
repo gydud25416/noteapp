@@ -64,7 +64,7 @@ export default function New({  addData}){
                         timestamp:new Date().getTime(),
                         images:showImg
                     })
-                    .then(res=>{addData(res.data); console.log(res.data)})
+                    .then(res=>{addData(res.data);})
                 } 
             }
             alert("저장되었습니다.")

@@ -6,9 +6,9 @@ import './ImageUpload.css'
 export default function ImageUpload({setShowImg, showImg, item}){
  
     useEffect(()=>{
-        if(item.images){
+        if(item?.images){
         setShowImg(item.images) 
-    }
+        }
     },[item]) 
 
 	function handleAddImg(e){  //이미지 업로드 preview
